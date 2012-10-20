@@ -9,9 +9,9 @@ if( Sys.info()["nodename"] == "MERKANEZ-PC" )
   pathDirectory <- "F:/Users/wibeasley/Documents/SSuccess/InterimStudy" #Change this directory location
 
 pathModel <- file.path(pathDirectory, "Diffusion.bugs")
-# curve(dbeta(x, .1,.1))
-# curve(dbeta(x, 1,1))
-# curve(dbeta(x, 10,10))
+curve(dbeta(x, .1,.1))
+curve(dbeta(x, 1,1))
+curve(dbeta(x, 10,10))
 # curve(dlogis(x, location = .25, scale = 1), xlim=c(-5, 5))
 
 #Proportion of Goers, of Irregulars, or Nongoers (or absentees) {Check these with data; I may have messed up the order}
