@@ -1,7 +1,14 @@
 rm(list=ls(all=TRUE))
 require(rjags)
 
-pathModel <- "F:/Users/wibeasley/Documents/Consulting/EmosaMcmc/Emosa2012-10-15/Diffusion.bugs"
+
+
+if( Sys.info()["nodename"] == "MICKEY" ) 
+  pathDirectory <- "F:/Users/wibeasley/Documents/Consulting/EmosaMcmc/Dev/EMOSA/OneShot_Only1984Diffusion"
+if( Sys.info()["nodename"] == "MERKANEZ-PC" ) 
+  pathDirectory <- "F:/Users/wibeasley/Documents/SSuccess/InterimStudy" #Change this directory location
+
+pathModel <- file.path(pathDirectory, "Diffusion.bugs")
 curve(dbeta(x, .1,.1))
 curve(dbeta(x, 1,1))
 curve(dbeta(x, 10,10))
@@ -26,7 +33,7 @@ parameters <- c("Kgi", "Kga", "Kig", "Kia", "Kag", "Kai", "sigmaG", "sigmaI")
 # inits <- function(){ list(Kgi=rnorm(1), Kga=rnorm(1), Kig=rnorm(1), Kia=rnorm(1), Kag=rnorm(1), Kai=rnorm(1)) }
 
 countChains <- 3
-countIterations <- 10000
+countIterations <- 100#00
 
 startTime <- Sys.time()
 
