@@ -1,7 +1,7 @@
 ## Welcome to the FANTASTIC EMOSA PROJECT by Will and Andrey
 Please read these links to help you get started.  If you have questions, please contact Will, Thomas, Arthur, or David.
 
-### Installation
+### Installation is important
 Instructions for installing the pieces required for generating and running our reports. 
 https://github.com/OuhscCcanMiechvEvaluation/MReporting/blob/master/DocumentationGlobal/ResourcesInstallation.md
 
