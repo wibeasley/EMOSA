@@ -1,4 +1,4 @@
-## Welcome to the FANTASTIC EMOSA PROJECT
+## Welcome to the FANTASTIC EMOSA PROJECT by Will and Andrey
 Please read these links to help you get started.  If you have questions, please contact Will, Thomas, Arthur, or David.
 
 ### Installation
