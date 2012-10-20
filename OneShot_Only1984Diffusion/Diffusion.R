@@ -9,10 +9,10 @@ if( Sys.info()["nodename"] == "MERKANEZ-PC" )
   pathDirectory <- "F:/Users/wibeasley/Documents/SSuccess/InterimStudy" #Change this directory location
 
 pathModel <- file.path(pathDirectory, "Diffusion.bugs")
-curve(dbeta(x, .1,.1))
-curve(dbeta(x, 1,1))
-curve(dbeta(x, 10,10))
-curve(dlogis(x, location = .25, scale = 1), xlim=c(-5, 5))
+# curve(dbeta(x, .1,.1))
+# curve(dbeta(x, 1,1))
+# curve(dbeta(x, 10,10))
+# curve(dlogis(x, location = .25, scale = 1), xlim=c(-5, 5))
 
 #Proportion of Goers, of Irregulars, or Nongoers (or absentees) {Check these with data; I may have messed up the order}
 #For the 1984 cohort
@@ -28,11 +28,11 @@ jagsData <- list("pg"=pg, "pi"=pi, "pa"=pa, "timeCount"=timeCount)
 
 # parameters <- c("mu")
 #parameters <- c("Kgi", "Kga", "Kig", "Kia", "Kag", "Kai", "scaleG", "scaleI", "scaleA")
-parameters <- c("Kgi", "Kga", "Kig", "Kia", "Kag", "Kai", "sigmaG", "sigmaI")
+parametersToTrack <- c("Kgi", "Kga", "Kig", "Kia", "Kag", "Kai", "sigmaG", "sigmaI")
 #parameters <- c("Kgi", "Kga", "Kig", "Kia", "Kag", "Kai", "precG", "precI", "precA")
 # inits <- function(){ list(Kgi=rnorm(1), Kga=rnorm(1), Kig=rnorm(1), Kia=rnorm(1), Kag=rnorm(1), Kai=rnorm(1)) }
 
-countChains <- 3
+countChains <- 3 #6
 countIterations <- 100#00
 
 startTime <- Sys.time()
@@ -42,7 +42,7 @@ jagsModel <- jags.model(file=pathModel, data=jagsData, n.chains=countChains)#, i
 #update(jagsModel, 1000) #modifies the original object and returns NULL
 # dic <- dic.samples(jagsModel, n.iter=countIterations) 
 #mcarray <- jags.samples(model=jagsModel, c('mu'), n.iter=countIterations) #If I understand correctly, the following line is similar, but better
-chains <- coda.samples(jagsModel, variable.names=parameters, n.iter=countIterations)# updates the model, and coerces the output to a single mcmc.list object. 
+chains <- coda.samples(jagsModel, variable.names=parametersToTrack, n.iter=countIterations)# updates the model, and coerces the output to a single mcmc.list object. 
 elapsed  <- Sys.time() - startTime
 (condensed <- summary(chains))
 
